@@ -16,7 +16,7 @@ class Message {
     let view = MessageView.viewFromNib(layout: MessageView.Layout.cardView)
     
     
-    init(text: String?, target: ViewController, presentationStyle: SwiftMessages.PresentationStyle = .bottom) {
+    init(text: String?, target: UIViewController, presentationStyle: SwiftMessages.PresentationStyle = .bottom) {
         
         messageConfiguration.presentationContext = .viewController(target)
         messageConfiguration.presentationStyle = presentationStyle

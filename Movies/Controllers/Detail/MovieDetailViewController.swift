@@ -150,6 +150,6 @@ extension MovieDetailViewController: StatefulViewController {
     
     func failure(_ type: ResponseType, error: String?) {
         self.endLoading()
-        //TODO: tratamento de erro
+        Message.init(text: error, target: self).show()
     }
 }
