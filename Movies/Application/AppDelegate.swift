@@ -55,28 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func migrateDatabase() {
         
-        var realmConfiguration = Realm.Configuration(
-            
-            schemaVersion: 10,
-            
-            migrationBlock: { migration, oldSchemaVersion in
-                
-                if (oldSchemaVersion < 10) {
-                    
-                }
-        })
-        
-        Realm.Configuration.defaultConfiguration = realmConfiguration
-        
         do {
             
             try uiRealm = Realm()
             
         } catch  {
-            
-            realmConfiguration.deleteRealmIfMigrationNeeded = true
-            
-            Realm.Configuration.defaultConfiguration = realmConfiguration
             
             uiRealm = try! Realm()
         }
@@ -86,10 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setNavigationAppearance() {
         
-        
         UINavigationBar.appearance().barTintColor = .black
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Colors.titleColor]
+        
+//        UIApplication.shared.statusBarStyle = .default
     }
 }
 

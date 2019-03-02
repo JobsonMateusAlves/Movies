@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.setNeedsStatusBarAppearanceUpdate()
         self.setupInitialViewState(emptyText: "Search Movies")
     }
     

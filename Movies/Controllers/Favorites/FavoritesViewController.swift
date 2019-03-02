@@ -19,7 +19,6 @@ class FavoritesViewController: UIViewController {
         
         self.title = "Favorites"
         self.navigationItem.titleView?.tintColor = Colors.titleColor
-        self.navigationItem.backBarButtonItem?.title = ""
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.configureBarButton()
