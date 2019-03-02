@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79E-kO-8AJ">
-                        <rect key="frame" x="16" y="18.5" width="46" height="30"/>
+                        <rect key="frame" x="15" y="18.5" width="46" height="30"/>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="openTrailer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vdj-CB-9VO"/>
@@ -31,7 +31,7 @@
                     <constraint firstItem="79E-kO-8AJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4lS-Xe-yFM"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="79E-kO-8AJ" secondAttribute="bottom" constant="4" id="7do-eH-ZCQ"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="79E-kO-8AJ" secondAttribute="trailing" constant="16" id="JJy-oq-JcA"/>
-                    <constraint firstItem="79E-kO-8AJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XaJ-sI-Lw0"/>
+                    <constraint firstItem="79E-kO-8AJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="XaJ-sI-Lw0"/>
                     <constraint firstItem="79E-kO-8AJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="YFV-WM-lV5"/>
                 </constraints>
             </tableViewCellContentView>

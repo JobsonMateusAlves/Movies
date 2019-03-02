@@ -26,8 +26,6 @@ internal enum StoryboardScene {
 
     internal static let movieDetailViewController = SceneType<Movies.MovieDetailViewController>(storyboard: Main.self, identifier: "MovieDetailViewController")
 
-    internal static let trailerViewController = SceneType<Movies.TrailerViewController>(storyboard: Main.self, identifier: "TrailerViewController")
-
     internal static let viewController = SceneType<Movies.ViewController>(storyboard: Main.self, identifier: "ViewController")
   }
 }

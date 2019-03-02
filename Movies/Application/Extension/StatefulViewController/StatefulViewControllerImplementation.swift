@@ -79,10 +79,6 @@ extension StatefulViewController {
     public func transitionViewStates(loading: Bool = false, error: Error? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
         // Update view for content (i.e. hide all placeholder views)
         if hasContent() {
-            if let e = error {
-                // show unobstrusive error
-                handleErrorWhenContentAvailable(e)
-            }
             self.stateMachine.transitionToState(.none, animated: animated, completion: completion)
             return
         }
@@ -95,13 +91,6 @@ extension StatefulViewController {
             newState = .error
         }
         self.stateMachine.transitionToState(.view(newState.rawValue), animated: animated, completion: completion)
-    }
-    
-    
-    // MARK: Content and error handling
-    
-    public func hasContent() -> Bool {
-        return true
     }
     
     public func handleErrorWhenContentAvailable(_ error: Error) {

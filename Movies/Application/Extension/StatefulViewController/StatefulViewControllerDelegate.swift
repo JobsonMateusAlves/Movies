@@ -11,10 +11,19 @@ import UIKit
 
 extension StatefulViewController {
     
-    func setupInitialViewState(emptyText: String, completion: (() -> Void)? = nil) {
+    func setupInitialViewState(emptyText: String = "No content", completion: (() -> Void)? = nil) {
         
         self.emptyView = EmptyView(frame: .zero, emptyText: emptyText)
+        self.loadingView = LoadingView(frame: .zero)
         
         self.setupInitialViewState(completion)
+    }
+    
+    func update(emptyText: String) {
+        
+        if let emptyView = self.emptyView as? EmptyView {
+            
+            emptyView.emptyText.text = emptyText
+        }
     }
 }

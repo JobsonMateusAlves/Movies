@@ -1,5 +1,5 @@
 //
-//  EmptyView.swift
+//  LoadingView.swift
 //  Movies
 //
 //  Created by Jobson Mateus on 01/03/19.
@@ -8,33 +8,33 @@
 
 import UIKit
 import Reusable
+import SpringIndicator
 
-class EmptyView: UIView, NibOwnerLoadable {
+class LoadingView: UIView, NibOwnerLoadable {
 
-    @IBOutlet weak var emptyText: UILabel!
+    @IBOutlet weak var viewLoading: SpringIndicator!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.loadNibContent()
         self.setColors()
-    }
-    
-    init(frame: CGRect, emptyText: String) {
-        super.init(frame: frame)
-        self.loadNibContent()
-        self.setColors()
-        self.emptyText.text = emptyText
+        self.configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.loadNibContent()
-        self.setColors()
     }
     
-    func setColors(background: UIColor = .black, titleColor: UIColor = Colors.primaryText) {
+    func configure() {
+        
+        self.viewLoading.lineColor = Colors.titleColor
+        
+        self.viewLoading.start()
+    }
+    
+    func setColors(background: UIColor = .black) {
         
         self.backgroundColor = background
-        self.emptyText.textColor = titleColor
     }
 }

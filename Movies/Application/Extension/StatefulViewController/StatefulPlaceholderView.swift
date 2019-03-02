@@ -20,5 +20,4 @@ extension StatefulPlaceholderView {
     public func placeholderViewInsets() -> UIEdgeInsets {
         return UIEdgeInsets()
     }
-
 }

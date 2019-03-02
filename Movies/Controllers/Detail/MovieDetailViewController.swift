@@ -39,6 +39,7 @@ class MovieDetailViewController: UIViewController {
         self.configureTableView()
         self.service = MovieService.init(delegate: self)
         
+        self.startLoading()
         self.service.getMovieTrailer(movieId: self.movieId)
     }
     

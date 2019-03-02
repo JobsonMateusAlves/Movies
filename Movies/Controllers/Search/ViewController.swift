@@ -31,9 +31,6 @@ class ViewController: UIViewController {
         self.setColors()
         self.setupSearchController()
         self.setupFavorites()
-        
-//        self.startLoading()
-//        self.service.getSearchMovies(text: "Avengers")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +90,8 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
     
         if let text = timer.userInfo as? String {
             
+            self.movies = []
+            
             self.startLoading()
             
             self.service.getSearchMovies(text: text)
@@ -135,11 +134,10 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
-//        self.startLoading()
         self.movies = []
         self.collectionView.reloadData()
-        self.setupInitialViewState(emptyText: "Search Movies")
-//        self.endLoading()
+        self.update(emptyText: "Search Movies")
+        self.transitionViewStates()
     }
 }
 
@@ -202,7 +200,7 @@ extension ViewController: StatefulViewController, BackingViewProvider {
             
             self.collectionView.reloadData()
             
-            self.setupInitialViewState(emptyText: "Movies not found")
+            self.update(emptyText: "Movies not found")
             
         default:
             break
