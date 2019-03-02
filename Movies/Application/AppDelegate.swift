@@ -90,7 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = .black
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Colors.titleColor]
-
     }
 }
 

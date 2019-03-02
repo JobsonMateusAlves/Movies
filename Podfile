@@ -11,6 +11,6 @@ target 'Movies' do
   pod 'RealmSwift'
   pod 'Reusable'
   pod 'Kingfisher'
-  pod 'SwiftMessages'
+  pod 'SwiftMessages', '~> 4.1.4'
   pod 'SpringIndicator'
 end

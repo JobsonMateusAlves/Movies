@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
-class MovieService {
+class MovieService: Service {
     
     var getSearchMoviesRequest: Request?
     var getMoviesTrailerRequest: Request?
@@ -41,7 +41,7 @@ class MovieService {
                 self.delegate.success(.searchMovies)
             case .failure:
                 //TODO: ErrorManager
-                self.delegate.failure(.searchMovies, error: "")
+                self.delegate.failure(.searchMovies, error: self.getError(response: response))
             }
         })
     }
@@ -68,7 +68,7 @@ class MovieService {
                 self.delegate.success(.getTrailers)
             case .failure:
                 //TODO: ErrorManager
-                self.delegate.failure(.getTrailers, error: "")
+                self.delegate.failure(.getTrailers, error: self.getError(response: response))
             }
         })
     }

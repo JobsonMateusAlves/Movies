@@ -34,6 +34,7 @@
 		F6AF1F212224E96E00241152 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF1F202224E96E00241152 /* MovieViewModel.swift */; };
 		F6AF1F232224ED2200241152 /* MovieRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF1F222224ED2200241152 /* MovieRequestFactory.swift */; };
 		F6AF1F252224ED3200241152 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AF1F242224ED3200241152 /* MovieService.swift */; };
+		F6C8DB3F222AF6360038CF81 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8DB3E222AF6360038CF81 /* Message.swift */; };
 		F6CAB759222A0EB20090D5D5 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAB758222A0EB20090D5D5 /* Trailer.swift */; };
 		F6CAB75B222A0FB00090D5D5 /* TrailerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAB75A222A0FB00090D5D5 /* TrailerViewModel.swift */; };
 		F6CAB75F222A25A00090D5D5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CAB75E222A25A00090D5D5 /* LoadingView.swift */; };
@@ -82,6 +83,7 @@
 		F6AF1F202224E96E00241152 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		F6AF1F222224ED2200241152 /* MovieRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRequestFactory.swift; sourceTree = "<group>"; };
 		F6AF1F242224ED3200241152 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		F6C8DB3E222AF6360038CF81 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F6CAB758222A0EB20090D5D5 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
 		F6CAB75A222A0FB00090D5D5 /* TrailerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewModel.swift; sourceTree = "<group>"; };
 		F6CAB75E222A25A00090D5D5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				F6AB5F902224DE0500BCC6C3 /* AppDelegate.swift */,
 				F6F75D212226010E00089661 /* ResponseType.swift */,
 				F6825089222A39C00052D80E /* Service.swift */,
+				F6C8DB3E222AF6360038CF81 /* Message.swift */,
 				F6F75D172225FBD900089661 /* Extension */,
 				F6AF1F1B2224E27400241152 /* Supporting Files */,
 			);
@@ -214,7 +217,6 @@
 				F601443C2228E9BF005A8E28 /* Search */,
 				F60144392228E968005A8E28 /* Detail */,
 				F60144372228E915005A8E28 /* Favorites */,
-				F6AF1F1C2224E30100241152 /* Views */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,13 +256,6 @@
 				F6AB5F992224DE0800BCC6C3 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F6AF1F1C2224E30100241152 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F6AF1F1D2224E30600241152 /* Cells */ = {
@@ -498,6 +493,7 @@
 				F682508A222A39C00052D80E /* Service.swift in Sources */,
 				F621295322279C3000737934 /* MovieDetailTableViewCell.swift in Sources */,
 				F6F75D3022263CFD00089661 /* Assets.swift in Sources */,
+				F6C8DB3F222AF6360038CF81 /* Message.swift in Sources */,
 				F6CAB759222A0EB20090D5D5 /* Trailer.swift in Sources */,
 				F6F75D1D2225FDC300089661 /* ViewStateMachine.swift in Sources */,
 				F6F75D1E2225FDC300089661 /* StatefulPlaceholderView.swift in Sources */,

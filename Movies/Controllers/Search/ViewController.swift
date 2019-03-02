@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftMessages
 
 class ViewController: UIViewController {
     
@@ -212,6 +213,6 @@ extension ViewController: StatefulViewController, BackingViewProvider {
     func failure(_ type: ResponseType, error: String?) {
         
         self.endLoading()
-        //TODO: tratamento de erro
+        Message.init(text: error, target: self).show()
     }
 }
