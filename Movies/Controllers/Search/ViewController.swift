@@ -23,22 +23,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Movies"
-        self.navigationItem.backBarButtonItem?.tintColor = .white
-        
+        self.navigationItem.titleView?.tintColor = Colors.titleColor
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.service = MovieService(delegate: self)
         self.configureCollectionView()
         self.setColors()
         self.setupSearchController()
+        self.setupFavorites()
         
-        self.startLoading()
-        self.service.getSearchMovies(text: "Avengers")
+//        self.startLoading()
+//        self.service.getSearchMovies(text: "Avengers")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.setupInitialViewState(emptyText: "Search Movies")
     }
     
     func setColors() {
@@ -51,8 +52,14 @@ class ViewController: UIViewController {
         
         self.searchController = UISearchController.init(searchResultsController: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .search, target: self, action: #selector(presentSearchController))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(presentSearchController))
         self.navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    
+    func setupFavorites() {
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: Asset.emptyStar.getImage(), style: .done, target: self, action: #selector(presentFavoritesController))
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
     func configureCollectionView() {
@@ -65,7 +72,7 @@ class ViewController: UIViewController {
         
         if let destino = segue.destination as? MovieDetailViewController {
             
-            destino.movieId = sender as! Int
+            destino.movieId = sender as? Int
         }
     }
 }
@@ -107,6 +114,13 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         self.present(self.searchController, animated: true)
     }
     
+    @objc func presentFavoritesController() {
+        
+        let controller = StoryboardScene.Main.favoritesViewController.instantiate()
+        
+        self.present(UINavigationController.init(rootViewController: controller), animated: true)
+    }
+    
     func setSearchTextFieldAppearence() {
         
         let textFieldInsideSearchBar = self.searchController.searchBar.value(forKey: "searchField") as? UITextField
@@ -117,6 +131,15 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.searchController.searchBar.barStyle = .black
         self.searchController.searchBar.tintColor = Colors.primaryText
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+//        self.startLoading()
+        self.movies = []
+        self.collectionView.reloadData()
+        self.setupInitialViewState(emptyText: "Search Movies")
+//        self.endLoading()
     }
 }
 
@@ -175,9 +198,11 @@ extension ViewController: StatefulViewController, BackingViewProvider {
         switch type {
         case .searchMovies:
             
-            self.movies = MovieViewModel.getAll()
+            self.movies = MovieViewModel.get(by: self.searchController.searchBar.text ?? "")
             
             self.collectionView.reloadData()
+            
+            self.setupInitialViewState(emptyText: "Movies not found")
             
         default:
             break
@@ -189,5 +214,6 @@ extension ViewController: StatefulViewController, BackingViewProvider {
     func failure(_ type: ResponseType, error: String?) {
         
         self.endLoading()
+        //TODO: tratamento de erro
     }
 }

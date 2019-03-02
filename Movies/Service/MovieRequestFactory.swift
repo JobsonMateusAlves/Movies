@@ -18,4 +18,11 @@ class MovieRequestFactory {
         
         return AF.request(baseURL + "/search/movie", method: .get, parameters: params)
     }
+    
+    static func getMovieTrailer(movieId: Int) -> DataRequest {
+        
+        let params: Parameters = ["api_key": apiKey]
+        
+        return AF.request(baseURL + "/movie/\(movieId)/videos", method: .get, parameters: params)
+    }
 }

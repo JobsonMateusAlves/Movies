@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmtpyView" customModule="Movies" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyView" customModule="Movies" customModuleProvider="target">
             <connections>
-                <outlet property="title" destination="ExL-iW-SZb" id="GkR-G9-pIR"/>
+                <outlet property="emptyText" destination="ahu-7K-0XS" id="ma3-4H-QFD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,19 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Content" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ExL-iW-SZb">
-                    <rect key="frame" x="8" y="333.5" width="359" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahu-7K-0XS">
+                    <rect key="frame" x="8" y="323.5" width="359" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ExL-iW-SZb" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Ajb-Qc-jVS"/>
-                <constraint firstItem="ExL-iW-SZb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="cXs-B2-JGn"/>
-                <constraint firstItem="ExL-iW-SZb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="f2F-et-3YB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ExL-iW-SZb" secondAttribute="trailing" constant="8" id="g5h-HF-HBe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ahu-7K-0XS" secondAttribute="trailing" constant="8" id="LHM-eV-onO"/>
+                <constraint firstItem="ahu-7K-0XS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SGB-l8-Ynv"/>
+                <constraint firstItem="ahu-7K-0XS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="W7f-Q7-tPi"/>
+                <constraint firstItem="ahu-7K-0XS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="grz-bx-0ss"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

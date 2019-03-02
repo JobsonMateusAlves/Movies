@@ -11,6 +11,7 @@ import RealmSwift
 
 let baseURL = "https://api.themoviedb.org/3"
 let imageBaseURL = "https://image.tmdb.org/t/p/original"
+let baseUrlYoutube = "https://www.youtube.com/watch?v="
 let apiKey = "9fb1244aab053cf93fa00223bef8e80f"
 var uiRealm: Realm!
 
@@ -85,10 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setNavigationAppearance() {
         
+        
         UINavigationBar.appearance().barTintColor = .black
-        UINavigationBar.appearance().tintColor = Colors.titleColor
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : Colors.titleColor]
-//        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(-500, 0), for:UIBarMetrics.default)
+
     }
 }
 

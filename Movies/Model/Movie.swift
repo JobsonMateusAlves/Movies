@@ -17,10 +17,9 @@ class Movie: Object, Mappable {
     @objc dynamic var nome: String?
     @objc dynamic var sinopse: String?
     @objc dynamic var imagem: String?
-    @objc dynamic var trailer: String?
     @objc dynamic var originalTitle: String?
     var video = RealmOptional<Bool>()
-    var favorite = false
+    var favorite = RealmOptional<Bool>()
     
     required convenience init?(map: Map) {
         self.init()
@@ -37,8 +36,8 @@ class Movie: Object, Mappable {
         self.nome               <- map["title"]
         self.sinopse            <- map["overview"]
         self.imagem             <- map["poster_path"]
-        self.trailer            <- map[""]
         self.video.value        <- map["video"]
         self.originalTitle      <- map["originalTitle"]
+        self.favorite.value = false
     }
 }

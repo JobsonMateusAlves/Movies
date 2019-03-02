@@ -22,6 +22,8 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Main.self)
 
+    internal static let favoritesViewController = SceneType<Movies.FavoritesViewController>(storyboard: Main.self, identifier: "FavoritesViewController")
+
     internal static let movieDetailViewController = SceneType<Movies.MovieDetailViewController>(storyboard: Main.self, identifier: "MovieDetailViewController")
 
     internal static let trailerViewController = SceneType<Movies.TrailerViewController>(storyboard: Main.self, identifier: "TrailerViewController")

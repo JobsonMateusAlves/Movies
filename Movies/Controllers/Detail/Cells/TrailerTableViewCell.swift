@@ -1,5 +1,5 @@
 //
-//  TraillerTableViewCell.swift
+//  TrailerTableViewCell.swift
 //  Movies
 //
 //  Created by Jobson Mateus on 28/02/19.
@@ -10,7 +10,7 @@ import UIKit
 import Reusable
 
 protocol TrailerTableViewCellDelegate {
-    func openTrailler()
+    func openTrailer(id: String)
 }
 
 class TrailerTableViewCell: UITableViewCell, NibReusable {
@@ -18,6 +18,8 @@ class TrailerTableViewCell: UITableViewCell, NibReusable {
     @IBOutlet weak var trailerButton: UIButton!
     
     var delegate: TrailerTableViewCellDelegate!
+    
+    var trailer: TrailerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,13 +32,15 @@ class TrailerTableViewCell: UITableViewCell, NibReusable {
         self.backgroundColor = Colors.primaryColor
     }
     
-    func bind(text: String) {
+    func bind(trailer: TrailerView) {
         
-        self.trailerButton.setTitle(text, for: .normal)
+        self.trailer = trailer
+        
+        self.trailerButton.setTitle(self.trailer.name, for: .normal)
     }
     
     @IBAction func openTrailer(_ sender: Any) {
         
-        self.delegate.openTrailler()
+        self.delegate.openTrailer(id: self.trailer.id)
     }
 }

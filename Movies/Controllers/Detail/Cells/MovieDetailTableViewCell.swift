@@ -40,17 +40,15 @@ class MovieDetailTableViewCell: UITableViewCell, NibReusable {
     func bind(with movie: MovieView) {
         
         self.movie = movie
-        self.starButton.setImage(movie.favorite ? UIImage(named: "star") : UIImage(named: "emptyStar"), for: .normal)
-        self.imageMovie.setImage(movie.imagemUrl)
-        self.titleLabel.text = movie.nome
-        self.overViewLabel.text = movie.sinopse
+        self.starButton.setImage(self.movie.favorite ? UIImage(named: "star") : UIImage(named: "emptyStar"), for: .normal)
+        self.imageMovie.setImage(self.movie.imagemUrl)
+        self.titleLabel.text = self.movie.nome
+        self.overViewLabel.text = self.movie.sinopse
     }
     @IBAction func didFavorited(_ sender: Any) {
         
-        self.movie.favorite = !self.movie.favorite
+        self.movie = MovieViewModel.favoriteMovie(by: self.movie.id)
         
-        self.starButton.setImage(movie.favorite ? UIImage(named: "star") : UIImage(named: "emptyStar"), for: .normal)
-        
-        self.delegate.didFavorited()
+        self.starButton.setImage(self.movie.favorite ? UIImage(named: "star") : UIImage(named: "emptyStar"), for: .normal)
     }
 }

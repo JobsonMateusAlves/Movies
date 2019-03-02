@@ -13,6 +13,7 @@ import AlamofireObjectMapper
 class MovieService {
     
     var getSearchMoviesRequest: Request?
+    var getMoviesTrailerRequest: Request?
     
     var delegate: StatefulViewController!
     
@@ -41,6 +42,33 @@ class MovieService {
             case .failure:
                 //TODO: ErrorManager
                 self.delegate.failure(.searchMovies, error: "")
+            }
+        })
+    }
+    
+    func getMovieTrailer(movieId: Int) {
+        
+        self.getSearchMoviesRequest?.cancel()
+        
+        self.getSearchMoviesRequest = MovieRequestFactory.getMovieTrailer(movieId: movieId).validate().responseArray(keyPath: "results", completionHandler: { (response: DataResponse<[Trailer]>) in
+            
+            switch response.result {
+                
+            case .success:
+                
+                if let trailers = response.result.value {
+                    
+                    for trailer in trailers {
+                        trailer.movieId.value = movieId
+                    }
+                    TrailerViewModel.deleteAll()
+                    TrailerViewModel.saveAll(trailers: trailers)
+                }
+                
+                self.delegate.success(.getTrailers)
+            case .failure:
+                //TODO: ErrorManager
+                self.delegate.failure(.getTrailers, error: "")
             }
         })
     }

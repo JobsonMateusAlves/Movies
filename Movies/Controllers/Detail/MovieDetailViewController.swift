@@ -8,25 +8,46 @@
 
 import UIKit
 
+protocol MovieDetailViewControllerDelegate {
+    func didPopViewController()
+}
+
 class MovieDetailViewController: UIViewController {
     
     var movieId: Int!
     var movie: MovieView!
-    var trailers: [String] = ["trailer 1", "Trailer 2"]
+    var trailers: [TrailerView] = []
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var delegate: MovieDetailViewControllerDelegate!
+    
+    var service: MovieService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.movie = MovieViewModel.get(by: self.movieId)
+        self.title = self.movie.nome
+        
+        self.navigationItem.titleView?.tintColor = Colors.titleColor
+        self.navigationItem.backBarButtonItem?.title = ""
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.setColors()
         self.configureTableView()
+        self.service = MovieService.init(delegate: self)
         
-        self.movie = MovieViewModel.get(by: self.movieId)
+        self.service.getMovieTrailer(movieId: self.movieId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-        self.title = self.movie.nome
+        if let delegate = self.delegate {
+            delegate.didPopViewController()
+        }
     }
     
     func configureTableView() {
@@ -66,14 +87,13 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let cell = tableView.dequeueReusableCell(for: indexPath) as MovieDetailTableViewCell
             
             cell.bind(with: self.movie)
-            cell.delegate = self
             
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(for: indexPath) as TrailerTableViewCell
         
-        cell.bind(text: self.trailers[indexPath.row])
+        cell.bind(trailer: self.trailers[indexPath.row])
         cell.delegate = self
         
         return cell
@@ -95,17 +115,40 @@ extension MovieDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension MovieDetailViewController: MovieDetailTableViewCellDelegate, TrailerTableViewCellDelegate {
+extension MovieDetailViewController: TrailerTableViewCellDelegate {
     
-    func didFavorited() {
+    func openTrailer(id: String) {
         
+        let trailer = TrailerViewModel.get(by: id)
         
+        if let url = URL(string: baseUrlYoutube + "\(trailer.key)") {
+            UIApplication.shared.open(url)
+        }
+    }
+}
+
+extension MovieDetailViewController: StatefulViewController {
+    
+    func hasContent() -> Bool {
+        return !self.trailers.isEmpty
     }
     
-    func openTrailler() {
+    func success(_ type: ResponseType) {
         
-        let controller = StoryboardScene.Main.trailerViewController.instantiate()
+        switch type {
+        case .getTrailers:
+            
+            self.trailers = TrailerViewModel.getAll()
+            self.tableView.reloadData()
+        default:
+            break
+        }
         
-        self.present(controller, animated: true)
+        self.endLoading()
+    }
+    
+    func failure(_ type: ResponseType, error: String?) {
+        self.endLoading()
+        //TODO: tratamento de erro
     }
 }

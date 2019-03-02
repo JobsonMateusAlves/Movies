@@ -25,14 +25,14 @@
                             <constraint firstAttribute="height" constant="300" id="Z38-tE-h2j"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="341-De-92C">
-                        <rect key="frame" x="16" y="328" width="54" height="26.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="341-De-92C">
+                        <rect key="frame" x="16" y="329" width="49.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFt-f8-10a">
-                        <rect key="frame" x="86" y="316" width="50" height="50"/>
+                        <rect key="frame" x="73.5" y="316" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="FMl-rs-rFQ"/>
                             <constraint firstAttribute="width" constant="50" id="ZL3-Pn-0yd"/>
@@ -44,8 +44,8 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwP-R6-NTJ">
-                        <rect key="frame" x="16" y="374" width="375" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="16" y="374" width="375" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -59,9 +59,9 @@
                     <constraint firstItem="341-De-92C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cpP-J9-qyG"/>
                     <constraint firstAttribute="trailing" secondItem="VwP-R6-NTJ" secondAttribute="trailing" constant="16" id="eHI-zM-Vj7"/>
                     <constraint firstItem="mFt-f8-10a" firstAttribute="centerY" secondItem="341-De-92C" secondAttribute="centerY" id="f1o-Uz-2Qz"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mFt-f8-10a" secondAttribute="trailing" constant="16" id="f2p-Qp-X4X"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mFt-f8-10a" secondAttribute="trailing" id="f2p-Qp-X4X"/>
                     <constraint firstItem="VwP-R6-NTJ" firstAttribute="top" secondItem="mFt-f8-10a" secondAttribute="bottom" constant="8" id="if6-yT-fll"/>
-                    <constraint firstItem="mFt-f8-10a" firstAttribute="leading" secondItem="341-De-92C" secondAttribute="trailing" constant="16" id="pLw-l8-XW8"/>
+                    <constraint firstItem="mFt-f8-10a" firstAttribute="leading" secondItem="341-De-92C" secondAttribute="trailing" constant="8" id="pLw-l8-XW8"/>
                     <constraint firstAttribute="trailing" secondItem="CWZ-yr-opF" secondAttribute="trailing" id="zeo-VL-Kdn"/>
                 </constraints>
             </tableViewCellContentView>

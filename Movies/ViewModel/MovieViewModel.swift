@@ -30,20 +30,23 @@ class MovieViewModel {
     
     static func saveAll(movies: [Movie]) {
         
+        for movie in movies {
+            
+            let movieView = self.get(by: movie.id.value ?? -1)
+            movie.favorite.value = movieView.favorite
+        }
+        
         try! uiRealm.write {
             
             uiRealm.add(movies, update: true)
         }
     }
     
-    static func save(movie: Movie) {
+    static func getModel(by id: Int) -> Movie? {
         
-        try! uiRealm.write {
-            
-            uiRealm.add(movie, update: true)
-        }
+        return uiRealm.object(ofType: Movie.self, forPrimaryKey: id)
     }
-    
+
     static func getAsView(movie: Movie?) -> MovieView {
         
         guard let movie = movie else {
@@ -56,10 +59,9 @@ class MovieViewModel {
         movieView.nome = movie.nome ?? ""
         movieView.sinopse = movie.sinopse ?? ""
         movieView.imagem = movie.imagem ?? ""
-        movieView.trailer = movie.trailer ?? ""
         movieView.video = movie.video.value ?? false
         movieView.originalTitle = movie.originalTitle ?? ""
-        movieView.favorite = movie.favorite
+        movieView.favorite = movie.favorite.value ?? false
         
         return movieView
     }
@@ -75,14 +77,30 @@ class MovieViewModel {
         return moviesView
     }
     
-    static func getAll() -> [MovieView] {
+    static func get() -> [Movie] {
         
-        let objects = uiRealm.objects(Movie.self)
+        let objects = uiRealm.objects(Movie.self).sorted(byKeyPath: "nome")
         
         var movies: [Movie] = []
         movies.append(contentsOf: objects)
         
-        return self.getAsView(sequence: movies)
+        return movies
+    }
+    
+    static func getAll() -> [MovieView] {
+        
+        return self.getAsView(sequence: self.get())
+    }
+    
+    static func getFavorites() -> [MovieView] {
+        
+        return self.getAll().filter({$0.favorite})
+    }
+    
+    static func get(by text: String) -> [MovieView] {
+        
+        
+        return self.getAll().filter({$0.nome.uppercased().trim().diacriticInsensitive().contains(text.uppercased().trim().diacriticInsensitive())})
     }
     
     static func get(by id: Int) -> MovieView {
@@ -94,9 +112,31 @@ class MovieViewModel {
     
     static func deleteAll() {
         
+        let objects = self.get().filter { (movie) -> Bool in
+            
+            if let favorite = movie.favorite.value {
+                
+                return !favorite
+            }
+            return true
+        }
+        
         try! uiRealm.write {
             
-            uiRealm.delete(uiRealm.objects(Movie.self))
+            uiRealm.delete(objects)
         }
+    }
+    
+    static func favoriteMovie(by id: Int) -> MovieView {
+        
+        let movie = uiRealm.object(ofType: Movie.self, forPrimaryKey: id)!
+        
+        if let favorite = movie.favorite.value {
+            try! uiRealm.write {
+                
+                movie.favorite.value = !favorite
+            }
+        }
+        return self.getAsView(movie: movie)
     }
 }

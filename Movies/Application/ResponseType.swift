@@ -11,6 +11,5 @@ import Foundation
 public enum ResponseType {
     
     case searchMovies
-    case favoriteMovie
-    case detalheMovie
+    case getTrailers
 }
