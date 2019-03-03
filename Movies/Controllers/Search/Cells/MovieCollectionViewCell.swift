@@ -23,6 +23,6 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func bind(movie: MovieView) {
         
-        self.movieImage.setImage(movie.imagemUrl)
+        self.movieImage.setImage(movie.imagemUrl) //TODO: PlaceholderImage
     }
 }

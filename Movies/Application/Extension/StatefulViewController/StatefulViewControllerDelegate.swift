@@ -11,7 +11,7 @@ import UIKit
 
 extension StatefulViewController {
     
-    func setupInitialViewState(emptyText: String = "No content", completion: (() -> Void)? = nil) {
+    func setupInitialViewState(emptyText: String = L10n.EmptyText.default, completion: (() -> Void)? = nil) {
         
         self.emptyView = EmptyView(frame: .zero, emptyText: emptyText)
         self.loadingView = LoadingView(frame: .zero)

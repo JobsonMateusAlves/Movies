@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Movies"
+        self.title = L10n.App.title
         self.navigationItem.titleView?.tintColor = Colors.titleColor
         self.navigationController?.navigationBar.isTranslucent = false
         
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
-        self.setupInitialViewState(emptyText: "Search Movies")
+        self.setupInitialViewState(emptyText: L10n.EmptyText.notFound)
     }
     
     func setColors() {
@@ -124,7 +124,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
     func setSearchTextFieldAppearence() {
         
         let textFieldInsideSearchBar = self.searchController.searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.placeholder = "search"
+        textFieldInsideSearchBar?.placeholder = L10n.SearchBar.placeholder
         textFieldInsideSearchBar?.textColor = Colors.primaryText
         textFieldInsideSearchBar?.tintColor = Colors.primaryText
         
@@ -137,7 +137,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.movies = []
         self.collectionView.reloadData()
-        self.update(emptyText: "Search Movies")
+        self.update(emptyText: L10n.EmptyText.notFound)
         self.transitionViewStates()
     }
 }
@@ -201,7 +201,7 @@ extension ViewController: StatefulViewController, BackingViewProvider {
             
             self.collectionView.reloadData()
             
-            self.update(emptyText: "Movies not found")
+            self.update(emptyText: L10n.EmptyText.notFound)
             
         default:
             break

@@ -32,7 +32,7 @@ class MovieDetailViewController: UIViewController {
         self.title = self.movie.nome
         
         self.navigationItem.titleView?.tintColor = Colors.titleColor
-        self.navigationItem.backBarButtonItem?.title = ""
+        self.navigationItem.backBarButtonItem?.title = " "
         self.navigationController?.navigationBar.isTranslucent = false
         
         self.setColors()

@@ -13,7 +13,7 @@ struct MovieView {
     
     var id = 0
     var nome = ""
-    var sinopse = ""
+    var sinopse = "Without overview"
     var imagem = ""
     var trailer = ""
     var originalTitle = ""
@@ -57,11 +57,15 @@ class MovieViewModel {
         
         movieView.id = movie.id.value ?? 0
         movieView.nome = movie.nome ?? ""
-        movieView.sinopse = movie.sinopse ?? ""
         movieView.imagem = movie.imagem ?? ""
         movieView.video = movie.video.value ?? false
         movieView.originalTitle = movie.originalTitle ?? ""
         movieView.favorite = movie.favorite.value ?? false
+        
+        if let sinopse = movie.sinopse, sinopse != "" {
+            
+            movieView.sinopse = sinopse
+        }
         
         return movieView
     }

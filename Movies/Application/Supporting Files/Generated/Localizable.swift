@@ -16,6 +16,27 @@ internal enum L10n {
     /// Movies
     internal static let title = L10n.tr("Localizable", "app.title")
   }
+
+  internal enum EmptyText {
+    /// No content
+    internal static let `default` = L10n.tr("Localizable", "emptyText.default")
+    /// Has not favorite movies
+    internal static let notFavorite = L10n.tr("Localizable", "emptyText.notFavorite")
+    /// Movies not found
+    internal static let notFound = L10n.tr("Localizable", "emptyText.notFound")
+    /// Search Movies
+    internal static let search = L10n.tr("Localizable", "emptyText.search")
+  }
+
+  internal enum Favorite {
+    /// Favorites
+    internal static let title = L10n.tr("Localizable", "favorite.title")
+  }
+
+  internal enum SearchBar {
+    /// Search
+    internal static let placeholder = L10n.tr("Localizable", "searchBar.placeholder")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

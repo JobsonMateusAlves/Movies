@@ -1,1 +1,13 @@
 "app.title" = "Movies";
+
+"emptyText.search" = "Search Movies";
+"emptyText.notFound" = "Movies not found";
+"emptyText.notFavorite" = "Has not favorite movies";
+"emptyText.default" = "No content";
+
+"searchBar.placeholder" = "Search";
+
+"favorite.title" = "Favorites";
+
+
+

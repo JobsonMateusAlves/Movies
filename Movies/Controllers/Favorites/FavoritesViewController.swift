@@ -17,7 +17,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Favorites"
+        self.title = L10n.Favorite.title
         self.navigationItem.titleView?.tintColor = Colors.titleColor
         self.navigationController?.navigationBar.isTranslucent = false
         
@@ -31,7 +31,7 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupInitialViewState(emptyText: "Has not favorite movies")
+        self.setupInitialViewState(emptyText: L10n.EmptyText.notFavorite)
     }
     
     func configureBarButton() {
