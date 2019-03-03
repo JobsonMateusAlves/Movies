@@ -31,4 +31,3 @@ Todos os requisitos foram cumpridos.
 
 ## Imagens
 
-https://user-images.githubusercontent.com/44685592/53696146-09822b00-3da3-11e9-9abc-27a92727e6c6.png
