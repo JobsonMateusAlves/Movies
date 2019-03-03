@@ -22,21 +22,21 @@ O projeto possui classes e extensões que têm a finalidade de evitar repetiçã
 ## Bibliotecas de Terceiros Utilizadas
 
 Neste projeto foram utilizadas as seguintes bibliotecas:
-- Alamofire
-- ObjectMapper
-- AlamofireObjectMapper
-- SwiftGen
-- RealmSwift
-- Reusable
-- Kingfisher
-- SwiftMessages
-- SpringIndicator
-- StatefulViewController
+- Alamofire;
+- ObjectMapper;
+- AlamofireObjectMapper;
+- SwiftGen;
+- RealmSwift;
+- Reusable;
+- Kingfisher;
+- SwiftMessages;
+- SpringIndicator;
+- StatefulViewController;
 
 ## Melhorias
 
-- Adicionaria um Player para que o usuario pudesse assistir aos videos dentro do próprio aplicativo
-- Melhoraria o design
+- Adicionaria um Player para que o usuario pudesse assistir aos videos dentro do próprio aplicativo.
+- Melhoraria o design.
 - Adicionaria uma tela com a opção de busca por filtro, que é uma opção oferecida pela API utilizada(movie Database API).
 
 ## Requisitos
