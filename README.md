@@ -11,6 +11,13 @@ O projeto consiste em um aplicativo que possui a opção de buscar filmes, além
   - Models: São os modelos do que estará armazenado no banco de dados.
   - ViewModels: São classes responsáveis por acessar o banco de dados, pegar as informações necessárias, tratá-las e enviá-las para a ViewController prontas para serem exibidas.
   - View: Classe responsável por definir a estrutura que o usuário vê na tela.
+  
+## Organização do Projeto
+O projeto possui classes e extensões que têm a finalidade de evitar repetição de codigo, sendo feitas de forma genérica podendo ser utilizadas em diversos locais do aplicativo.
+- Exemplos:
+  - Service(Herdada nas classes de service, possui funções para definir qual o erro retornado pela requisição);
+  - Message(classe responsável por apresentar as mensagens de erro das requisições no aplicativo);
+  - String(extension onde são criadas funções para manipular strings);
 
 ## Bibliotecas de Terceiros Utilizadas
 
