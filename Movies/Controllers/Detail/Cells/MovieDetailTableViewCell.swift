@@ -54,22 +54,22 @@ class MovieDetailTableViewCell: UITableViewCell, NibReusable {
         self.backgroundImage.hero.id = "\(movie.id) - background"
         self.backgroundImage.hero.modifiers = [.zPosition(100)]
         
-        self.setGradientInBackImage()
+//        self.setGradientInBackImage()
     }
     
-    func setGradientInBackImage() {
-        
-        let gradientLayer = CAGradientLayer()
-        
-        let colorBottom = UIColor.gray.withAlphaComponent(0.3).cgColor
-        let colorMiddle = UIColor.gray.withAlphaComponent(0.3).cgColor
-        
-        gradientLayer.frame = self.backgroundImage.bounds
-        gradientLayer.colors = [colorMiddle, colorBottom]
-        gradientLayer.locations = [0, 0.6]
-        
-        self.backgroundImage.layer.insertSublayer(gradientLayer, at:0)
-    }
+//    func setGradientInBackImage() {
+//
+//        let gradientLayer = CAGradientLayer()
+//
+//        let colorBottom = UIColor.red.withAlphaComponent(0.3).cgColor
+//        let colorMiddle = UIColor.red.withAlphaComponent(0.3).cgColor
+//
+//        gradientLayer.frame = self.backgroundImage.bounds
+//        gradientLayer.colors = [colorMiddle, colorBottom]
+//        gradientLayer.locations = [0, 0.6]
+//
+//        self.backgroundImage.layer.insertSublayer(gradientLayer, at:0)
+//    }
     
     @IBAction func didFavorited(_ sender: Any) {
         

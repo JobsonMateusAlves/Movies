@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         self.setupInitialViewState(emptyText: L10n.EmptyText.search)
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
     func setColors() {
         
         self.view.backgroundColor = Colors.primaryColor
@@ -187,7 +191,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: (UIScreen.main.bounds.width - 80)/3, height: (UIScreen.main.bounds.width + 64)/3)
+        if UIDevice.current.orientation == .portrait {
+            return CGSize(width: (UIScreen.main.bounds.width - 80)/3, height: (UIScreen.main.bounds.width + 64)/3)
+        }
+        
+        return CGSize(width: 110, height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
