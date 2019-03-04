@@ -19,7 +19,7 @@ O projeto possui classes e extensões que têm a finalidade de evitar repetiçã
   - Message(classe responsável por apresentar as mensagens de erro das requisições no aplicativo);
   - String(extension onde são criadas funções para manipular strings);
 
-## Bibliotecas de Terceiros Utilizadas
+## Bibliotecas Utilizadas
 
 Neste projeto foram utilizadas as seguintes bibliotecas:
 - Alamofire;
@@ -37,7 +37,8 @@ Neste projeto foram utilizadas as seguintes bibliotecas:
 
 - Adicionaria um Player para que o usuario pudesse assistir aos videos dentro do próprio aplicativo.
 - Melhoraria o design.
-- Adicionaria uma tela com a opção de busca por filtro, que é uma opção oferecida pela API utilizada(movie Database API).
+- Adicionaria uma tela com a opção de busca por filtro, que é uma opção oferecida pela API utilizada(Movie Database API).
+- Faria mais animações nas transições.
 
 ## Requisitos
 
