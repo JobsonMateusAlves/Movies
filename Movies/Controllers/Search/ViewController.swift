@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setupInitialViewState(emptyText: L10n.EmptyText.notFound)
+        self.setupInitialViewState(emptyText: L10n.EmptyText.search)
     }
     
     func setColors() {
@@ -90,7 +90,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.searchTimer?.invalidate()
         
-        if let text = searchController.searchBar.text, text.count > 0 {
+        if let text = searchController.searchBar.text?.trim().diacriticInsensitive(), !text.isEmpty {
             
             self.searchTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(search), userInfo: text, repeats: false)
         }
@@ -143,6 +143,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.movies = []
         self.collectionView.reloadData()
+        self.searchController.searchBar.text = ""
         self.update(emptyText: L10n.EmptyText.search)
         self.transitionViewStates()
         searchBar.resignFirstResponder()
