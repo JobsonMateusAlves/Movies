@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hero.isEnabled = true
+        
         self.title = L10n.App.title
         self.navigationItem.titleView?.tintColor = Colors.titleColor
         self.navigationController?.navigationBar.isTranslucent = false
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNeedsStatusBarAppearanceUpdate()
+        
         self.setupInitialViewState(emptyText: L10n.EmptyText.notFound)
     }
     
@@ -73,6 +75,13 @@ class ViewController: UIViewController {
             destino.movieId = sender as? Int
         }
     }
+    
+    @objc func presentFavoritesController() {
+        
+        let controller = StoryboardScene.Main.favoritesViewController.instantiate()
+        
+        self.present(UINavigationController.init(rootViewController: controller), animated: true)
+    }
 }
 
 extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
@@ -81,7 +90,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.searchTimer?.invalidate()
         
-        if let text = searchController.searchBar.text, text.count > 2 {
+        if let text = searchController.searchBar.text, text.count > 0 {
             
             self.searchTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(search), userInfo: text, repeats: false)
         }
@@ -104,6 +113,8 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.dimsBackgroundDuringPresentation = false
         
+        self.searchController.searchBar.text = ""
+        
         self.searchController.delegate = self
         self.searchController.searchBar.delegate = self
         self.searchController.searchResultsUpdater = self
@@ -111,14 +122,9 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         self.searchController.searchBar.sizeToFit()
         self.setSearchTextFieldAppearence()
         
-        self.present(self.searchController, animated: true)
-    }
-    
-    @objc func presentFavoritesController() {
-        
-        let controller = StoryboardScene.Main.favoritesViewController.instantiate()
-        
-        self.present(UINavigationController.init(rootViewController: controller), animated: true)
+        if !self.searchController.isActive {
+            self.present(self.searchController, animated: true)
+        }
     }
     
     func setSearchTextFieldAppearence() {
@@ -139,6 +145,19 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         self.collectionView.reloadData()
         self.update(emptyText: L10n.EmptyText.notFound)
         self.transitionViewStates()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        self.searchController.dismiss(animated: true)
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.searchController.dismiss(animated: true)
+        searchBar.resignFirstResponder()
     }
 }
 

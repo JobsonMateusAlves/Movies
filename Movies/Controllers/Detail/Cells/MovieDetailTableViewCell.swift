@@ -41,11 +41,18 @@ class MovieDetailTableViewCell: UITableViewCell, NibReusable {
     func bind(with movie: MovieView) {
         
         self.movie = movie
-        self.starButton.setImage(self.movie.favorite ? Asset.star.getImage() : Asset.emptyStar.getImage(), for: .normal) //TODO: Placeholder
-        self.imageMovie.setImage(self.movie.imagemUrl, placeholder: nil, contentMode: .scaleAspectFit)
-        self.backgroundImage.setImage(self.movie.imagemUrl, placeholder: nil) //TODO: Placeholder Image
+        self.starButton.setImage(self.movie.favorite ? Asset.star.getImage() : Asset.emptyStar.getImage(), for: .normal)
+        self.imageMovie.setImage(self.movie.imagemUrl, placeholder: Asset.moviePlaceholder.getImage(), contentMode: .scaleAspectFit)
+        self.backgroundImage.setImage(self.movie.imagemUrl, placeholder: Asset.moviePlaceholder.getImage())
         self.titleLabel.text = self.movie.nome
         self.overViewLabel.text = self.movie.sinopse
+        
+        self.imageMovie.hero.id = "\(movie.id)"
+        self.imageMovie.hero.modifiers = [.zPosition(100)]
+        self.hero.isEnabled = true
+        
+        self.backgroundImage.hero.id = "\(movie.id) - background"
+        self.backgroundImage.hero.modifiers = [.zPosition(100)]
         
         self.setGradientInBackImage()
     }

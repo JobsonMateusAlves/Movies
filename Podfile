@@ -13,4 +13,5 @@ target 'Movies' do
   pod 'Kingfisher'
   pod 'SwiftMessages', '~> 4.1.4'
   pod 'SpringIndicator'
+  pod 'Hero'
 end

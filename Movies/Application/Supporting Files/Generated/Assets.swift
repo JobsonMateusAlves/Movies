@@ -20,6 +20,8 @@
 internal enum Asset {
   internal static let close = ImageAsset(name: "close")
   internal static let emptyStar = ImageAsset(name: "emptyStar")
+  internal static let moviePlaceholder = ImageAsset(name: "moviePlaceholder")
+  internal static let moviesIcon = ImageAsset(name: "moviesIcon")
   internal static let search = ImageAsset(name: "search")
   internal static let star = ImageAsset(name: "star")
 }

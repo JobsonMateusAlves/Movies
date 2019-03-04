@@ -17,6 +17,8 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hero.isEnabled = true
+        
         self.title = L10n.Favorite.title
         self.navigationItem.titleView?.tintColor = Colors.titleColor
         self.navigationController?.navigationBar.isTranslucent = false
@@ -57,6 +59,15 @@ class FavoritesViewController: UIViewController {
         
         self.dismiss(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destino = segue.destination as? MovieDetailViewController {
+            
+            destino.movieId = sender as? Int
+            destino.delegate = self
+        }
+    }
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -76,11 +87,7 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = StoryboardScene.Main.movieDetailViewController.instantiate()
-        
-        controller.movieId = self.movies[indexPath.item].id
-        controller.delegate = self
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.perform(segue: StoryboardSegue.Main.detalheSegue, sender: self.movies[indexPath.item].id)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

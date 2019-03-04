@@ -40,7 +40,6 @@ class MovieService: Service {
                 
                 self.delegate.success(.searchMovies)
             case .failure:
-                //TODO: ErrorManager
                 self.delegate.failure(.searchMovies, error: self.getError(response: response))
             }
         })
@@ -67,7 +66,6 @@ class MovieService: Service {
                 
                 self.delegate.success(.getTrailers)
             case .failure:
-                //TODO: ErrorManager
                 self.delegate.failure(.getTrailers, error: self.getError(response: response))
             }
         })

@@ -27,6 +27,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hero.isEnabled = true
         
         self.movie = MovieViewModel.get(by: self.movieId)
         self.title = self.movie.nome

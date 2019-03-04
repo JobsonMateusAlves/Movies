@@ -9,6 +9,7 @@
 import UIKit
 import Reusable
 import Kingfisher
+import Hero
 
 class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
 
@@ -23,6 +24,11 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func bind(movie: MovieView) {
         
-        self.movieImage.setImage(movie.imagemUrl) //TODO: PlaceholderImage
+        self.movieImage.setImage(movie.imagemUrl, placeholder: Asset.moviePlaceholder.getImage())
+        self.movieImage.hero.id = "\(movie.id)"
+        self.movieImage.hero.modifiers = [.zPosition(100)]
+        self.hero.isEnabled = true
+        self.hero.id = "\(movie.id) - background"
+        self.hero.modifiers = [.zPosition(100)]
     }
 }
