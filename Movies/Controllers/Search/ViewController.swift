@@ -143,7 +143,7 @@ extension ViewController: UISearchResultsUpdating, UISearchBarDelegate, UISearch
         
         self.movies = []
         self.collectionView.reloadData()
-        self.update(emptyText: L10n.EmptyText.notFound)
+        self.update(emptyText: L10n.EmptyText.search)
         self.transitionViewStates()
         searchBar.resignFirstResponder()
     }
