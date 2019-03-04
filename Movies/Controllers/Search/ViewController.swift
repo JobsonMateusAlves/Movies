@@ -42,10 +42,6 @@ class ViewController: UIViewController {
         self.setupInitialViewState(emptyText: L10n.EmptyText.search)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
     func setColors() {
         
         self.view.backgroundColor = Colors.primaryColor
