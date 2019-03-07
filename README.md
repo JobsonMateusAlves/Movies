@@ -32,6 +32,7 @@ Neste projeto foram utilizadas as seguintes bibliotecas:
 - SwiftMessages;
 - SpringIndicator;
 - StatefulViewController;
+- Hero;
 
 ## Melhorias
 
