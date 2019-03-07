@@ -39,7 +39,7 @@ Neste projeto foram utilizadas as seguintes bibliotecas:
 - Adicionaria um Player para que o usuario pudesse assistir aos videos dentro do próprio aplicativo.
 - Melhoraria o design.
 - Adicionaria uma tela com a opção de busca por filtro, que é uma opção oferecida pela API utilizada(Movie Database API).
-- Faria mais animações nas transições.
+- Faria mais animações com a Hero, na apresentação dos detalhes dos filmes.
 
 ## Requisitos
 
